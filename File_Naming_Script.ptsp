@@ -1,0 +1,5 @@
+$if(%_subfolder%,%_subfolder%/)
+$if2(%albumartist%,%artist%)/
+$if(%_date%,[%_date%] )%album% [$if(%_source%,%_source% - )$upper(%_extension%) - $if($eq(%_extension%,mp3),%_bitrate% kbps,%_bits_per_sample% bit) - %_sampleratecalc% kHz$if($gt(%_channels%,2),\, %_channels%ch)]$if(%catalognumber%, {%catalognumber%})/
+$if($gt(%totaldiscs%,1),/Disc %discnumber%/,)
+$if(%discnumber%,%discnumber%,1)-$num(%tracknumber%,2). %title%
