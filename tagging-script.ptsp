@@ -1,0 +1,23 @@
+$set(_cleanartist,$swapprefix($if2(%albumartist%,%artist%),A,An,The,Le))
+
+$set(_firstletter,$substr(%_cleanartist%,0,1))
+
+$if($eq_any(%_firstletter%,0,1,2,3,4,5,6,7,8,9),$set(_subfolder,999))
+
+$if($eq(%albumartist%,Various Artists),$set(_subfolder,VA))
+
+$if($in($lower(%_secondaryreleasetype%),soundtrack),$set(_subfolder,OST))
+
+$if($not(%_subfolder%),$set(_subfolder,$firstalphachar(%_cleanartist%)))
+
+$if($eq_any(%media%,Compact Disc,Copy Control CD,Data CD,DTS CD,Enhanced CD,HDCD,8cm CD,Blu-spec CD,SHM-CD,HQCD,CD+G,8cm CD+G),$set(_source,CD))
+$if($eq_any(%media%,7" Vinyl,10" Vinyl,12" Vinyl,Flexi-disc,7" Flexi-disc),$set(_source,Vinyl))
+$if($eq_any(%media%,DVD-Audio,DVD-Video),$set(_source,DVD))
+$if($eq_any(%media%,Hybrid SACD,Hybrid SACD \(CD layer\),Hybrid SACD \(SACD layer\),SHM-SACD),$set(_source,SACD))
+$if($eq(%media%,Digital Media),$set(_source,WEB))
+$if($and($not(%_source%),$ne(%media%,Unknown Format)),$set(_source,%media%))
+
+$set(_date,$left(%date%,4))
+
+$set(_sampleratecalc,$div(%_sample_rate%,1000))
+$if($eq(%_sampleratecalc%,44),$set(_sampleratecalc,44.1))
