@@ -12,7 +12,8 @@ Remember to set up your destination directory in Picard options.
 
 Options > "Open file naming script editor..." > [File_Naming_Script.ptsp](https://github.com/Courage-1984/Picard-Custom-Scripts/blob/main/File_Naming_Script.ptsp)
 
-Options > Options > File Naming > 
+Options > Options > File Naming :
+
 ![image](https://github.com/user-attachments/assets/855be3cd-423f-4419-88ab-050222390d1f)
 
 Options > Options > File Naming > Scripting > [tagging-script.ptsp](https://github.com/Courage-1984/Picard-Custom-Scripts/blob/main/tagging-script.ptsp)
